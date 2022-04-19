@@ -34,8 +34,4 @@ class WeatherData {
         return Weather.sunny;
     }
   }
-
-  // Clouds
-  // Clear
-  // Rain
 }
