@@ -31,7 +31,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     case Weather.cloudy:
                       return Icon(Icons.wb_cloudy, size: 100);
                     case Weather.rainy:
-                      return Icon(Icons.wb_cloudy, size: 100);
+                      return Icon(Icons.umbrella, size: 100);
                     default:
                       return Icon(Icons.wb_sunny, size: 100);
                   }
@@ -51,11 +51,20 @@ class _WeatherScreenState extends State<WeatherScreen> {
               style: TextStyle(fontSize: 30),
             ),
             Spacer(),
-            ElevatedButton(
-              onPressed: () {
-                manager.updateWeather();
+            ValueListenableBuilder<bool>(
+              valueListenable: manager.isLoadingNotifier,
+              builder: (context, isLoading, child) {
+                if (isLoading) {
+                  return CircularProgressIndicator();
+                } else {
+                  return ElevatedButton(
+                    onPressed: () {
+                      manager.updateWeather();
+                    },
+                    child: Text('Update'),
+                  );
+                }
               },
-              child: Text('Update'),
             ),
             SizedBox(height: 20),
           ],
