@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "my_weather")
-set(APPLICATION_ID "com.example.my_weather")
+set(APPLICATION_ID "dev.suragch.my_weather")
 
 cmake_policy(SET CMP0063 NEW)
 
